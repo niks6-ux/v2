@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PEKPEK MO</title>
+    <style>
+    body {
+        font-family: 'Cambria', cambria;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-image: url('background.jpg'); /* Use the file name if it's in the same folder */
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        overflow: hidden;
+    }
+
+    .container {
+        text-align: center;
+        color: #fff;
+        background: rgba(0, 0, 0, 0.6);
+        padding: 50px;
+        border-radius: 15px;
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+        position: relative;
+        overflow: hidden;
+    }
+
+    h1 {
+        font-size: 3em;
+        animation: fadeIn 2s ease-out;
+        color: white;
+    }
+
+    .image-container {
+        display: none;
+        opacity: 0;
+        transition: opacity 2s ease-out;
+    }
+
+    .image-container img {
+        width: 300px;
+        height: auto;
+        border-radius: 20px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+        animation: zoomIn 2s ease-out;
+    }
+
+    .button {
+        background-color: #eb7878;
+        color: white;
+        font-size: 1.5em;
+        padding: 20px 40px;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        font-family: 'Cambria', cambria; /* Added Cambria font */
+    }
+
+    .button:hover {
+        background-color: #eb7878;
+    }
+
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+            transform: translateY(-50px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes zoomIn {
+        0% {
+            transform: scale(0.9);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+
+    .response-buttons {
+        display: none;
+        margin-top: 20px;
+    }
+
+    .response-buttons button {
+        background-color: #f9a6c0;
+        color: white;
+        font-size: 1.2em;
+        padding: 15px 30px;
+        border: none;
+        border-radius: 15px;
+        margin: 10px;
+        cursor: pointer;
+        opacity: 1;
+        transition: opacity 2s ease-out;
+        font-family: 'Cambria', cambria; /* Added Cambria font */
+    }
+
+    .response-buttons button:hover {
+        background-color: #ff4c4c;
+    }
+
+    .thank-you {
+        display: none;
+        font-size: 2.5em;
+        color: #fff;
+        margin-top: 30px;
+        animation: fadeInThankYou 2s ease-out, pulse 1s infinite;
+    }
+
+    .thank-you-image {
+        display: none;
+        margin: 0 auto;
+        width: 300px;
+        height: auto;
+        border-radius: 15px;
+        animation: rotateIn 2s ease-out, pulse 2s infinite;
+        opacity: 0;
+        transition: opacity 2s ease-in-out;
+    }
+
+    .thank-you-description {
+        display: none;
+        font-size: 1.2em;
+        color: #fff;
+        margin-top: 20px;
+        animation: fadeIn 2s ease-out;
+    }
+
+    @keyframes fadeInThankYou {
+        0% {
+            opacity: 0;
+            transform: translateY(50px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes rotateIn {
+        0% {
+            transform: scale(0.8) rotate(-10deg);
+        }
+        100% {
+            transform: scale(1) rotate(0deg);
+        }
+    }
+
+    @keyframes pulse {
+        0%, 100% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.05);
+        }
+    }
+</style>
+
+</head>
+<body>
+
+<div class="container">
+    <h1>WILL YOU BE MY VALENTINES, BABY? 💌</h1>
+    <button class="button" id="start-button"> PLSSS PLSS PLS... 😔🥺</button>
+
+    <!-- Hidden Image Container -->
+    <div class="image-container" id="image-container">
+        <img id="valentine-image" src="valentine-image.jpg" alt="Valentine's Image">
+    </div>
+
+    <div class="response-buttons" id="response-buttons">
+        <button id="yes-button">SURE SURE 😽</button>
+        <button id="maybe-button">NAMARNS 😺</button>
+        <button id="no-button">HELL YEAAS 😻</button>
+    </div>
+
+    <!-- Thank You Message -->
+    <div class="thank-you" id="thank-you-message">
+        <p>YAAAYYYYY !!! </p>
+    </div>
+
+    <!-- Thank You Image -->
+    <img src="thank-you-image.jpg" id="thank-you-image" class="thank-you-image" alt="Thank You Image">
+
+    <!-- Thank You Description -->
+<div class="thank-you-description" id="thank-you-description">
+    <p>
+        <strong>WHAT:</strong> VALENTINES/MONTHSARY DATE<br>
+        <strong>WHERE:</strong> FESTIVAL MALL<br>
+        <strong>WHEN:</strong> FEB 15 (AROUND 2-3PM<br>
+        <strong>OKEE LOVEE YOUU, BYE!<br>
+        <strong>XOXO, NIKKI 😘😝</strong>
+    </p>
+</div>
+
+
+
+</div>
+
+<audio id="background-music" loop>
+    <source src="music.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+
+<script>
+    const startButton = document.getElementById("start-button");
+    const imageContainer = document.getElementById("image-container");
+    const valentineImage = document.getElementById("valentine-image");
+    const responseButtons = document.getElementById("response-buttons");
+    const yesButton = document.getElementById("yes-button");
+    const maybeButton = document.getElementById("maybe-button");
+    const noButton = document.getElementById("no-button");
+    const thankYouMessage = document.getElementById("thank-you-message");
+    const thankYouImage = document.getElementById("thank-you-image");
+    const thankYouDescription = document.getElementById("thank-you-description");
+
+    const backgroundMusic = document.getElementById("background-music");
+
+    // Attempt to play music when the user interacts
+    startButton.addEventListener("click", () => {
+        try {
+            backgroundMusic.play();
+        } catch (error) {
+            console.log("Playback failed. User interaction might be required:", error);
+        }
+    });
+
+    // Optionally, unmute if autoplay fails
+    backgroundMusic.addEventListener("play", () => {
+        backgroundMusic.muted = false;
+    });
+
+    startButton.addEventListener("click", function() {
+        startButton.style.display = "none";
+        imageContainer.style.display = "block";
+        setTimeout(() => {
+            imageContainer.style.opacity = "1";
+            setTimeout(() => {
+                responseButtons.style.display = "block";
+            }, 1000);
+        }, 1000);
+    });
+
+    function showThankYouMessage() {
+        valentineImage.style.opacity = "0";
+        responseButtons.style.opacity = "0";
+
+        setTimeout(() => {
+            valentineImage.style.display = "none";
+            responseButtons.style.display = "none";
+
+            thankYouMessage.style.display = "block";
+            thankYouImage.style.display = "block";
+
+            setTimeout(() => {
+                thankYouImage.style.opacity = "1";
+
+                // Show the description after the image fades in
+                setTimeout(() => {
+                    thankYouDescription.style.display = "block";
+                }, 3000); // 3 seconds delay before the description appears
+            }, 100);
+        }, 2000);
+    }
+
+    yesButton.addEventListener("click", function() {
+        alert("DAPAT LANG, WALA KA NAMAN CHOICE EH😝");
+        showThankYouMessage();
+        setTimeout(function() {
+            location.reload();
+        }, 10000); // Reload after 10 seconds (7 seconds of description visible)
+    });
+
+    maybeButton.addEventListener("click", function() {
+        alert("OKI, NO CHOICE KA THO 😊");
+        showThankYouMessage();
+        setTimeout(function() {
+            location.reload();
+        }, 10000); // Reload after 10 seconds (7 seconds of description visible)
+    });
+
+    noButton.addEventListener("click", function() {
+        alert("OMKI, AGAIN NO CHOICE KA 😁");
+        showThankYouMessage();
+        setTimeout(function() {
+            location.reload();
+        }, 10000); // Reload after 10 seconds (7 seconds of description visible)
+    });
+</script>
+
+</body>
+</html>
